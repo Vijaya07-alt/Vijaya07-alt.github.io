@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Basic Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+    input {
+      width: 50px;
+      padding: 5px;
+    }
+    button {
+      padding: 5px 10px;
+      background-color: yellow;
+      border: 1px solid #ccc;
+    }
+    .result {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Basic Calculator</h2>
+  <input type="number" id="num1" placeholder="Num1">
+  <input type="number" id="num2" placeholder="Num2">
+  <button onclick="calculate()">Calculate</button>
+
+  <div class="result" id="results"></div>
+
+  <script>
+    function add(a, b) {
+      return a + b;
+    }
+
+    function subtract(a, b) {
+      return a - b;
+    }
+
+    function multiply(a, b) {
+      return a * b;
+    }
+
+    function divide(a, b) {
+      if (b === 0) {
+        return "Cannot divide by zero";
+      }
+      return (a / b).toFixed(2);
+    }
+
+    function calculate() {
+      const n1 = parseFloat(document.getElementById('num1').value);
+      const n2 = parseFloat(document.getElementById('num2').value);
+      const resultDiv = document.getElementById('results');
+
+      if (isNaN(n1) || isNaN(n2)) {
+        resultDiv.innerHTML = "<p>Please enter valid numbers.</p>";
+        return;
+      }
+
+      const sum = add(n1, n2);
+      const diff = subtract(n1, n2);
+      const prod = multiply(n1, n2);
+      const quotient = divide(n1, n2);
+
+      resultDiv.innerHTML = `
+        <p>${n1} + ${n2} = ${sum}</p>
+        <p>${n1} - ${n2} = ${diff}</p>
+        <p>${n1} × ${n2} = ${prod}</p>
+        <p>${n1} ÷ ${n2} = ${quotient}</p>
+      `;
+    }
+  </script>
+</body>
+</html>
