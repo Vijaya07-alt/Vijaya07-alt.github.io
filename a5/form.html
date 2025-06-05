@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Assignment 5 - User Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+    input {
+      display: block;
+      margin-bottom: 10px;
+      padding: 5px;
+      width: 200px;
+    }
+    button {
+      padding: 5px 10px;
+      background-color: lightblue;
+      border: 1px solid #ccc;
+    }
+    .result {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Enter Form Details</h2>
+
+  <label>Name:</label>
+  <input type="text" id="name">
+
+  <label>Email:</label>
+  <input type="email" id="email">
+
+  <label>Password:</label>
+  <input type="password" id="password">
+
+  <button onclick="submitForm()">Submit</button>
+
+  <div class="result" id="output"></div>
+
+  <script>
+    function submitForm() {
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      const outputDiv = document.getElementById('output');
+      outputDiv.innerHTML = `
+        <h3>Information:</h3>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Password:</strong> ${password}</p>
+      `;
+    }
+  </script>
+
+</body>
+</html>
